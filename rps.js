@@ -28,5 +28,9 @@ else {
 }
 
 }
+
+let humanScore = 0;
+let computerScore = 0;
+
 console.log(getComputerSelection());
 alert (getHumanSelection());
