@@ -12,15 +12,15 @@ return computerselect;
 }
 
 function getHumanSelection () {
-const choice = prompt("Pick one! Rock, Paper, or Scissors");
+const humanselect = prompt("Pick one! Rock, Paper, or Scissors");
 
-if (choice.toLowerCase() === "rock") {
+if (humanselect.toLowerCase() === "rock") {
     return "Rock";
 }
-else if (choice.toLowerCase() === "paper") {
+else if (humanselect.toLowerCase() === "paper") {
     return "Paper";
 }
-else if (choice.toLowerCase() === "scissors") {
+else if (humanselect.toLowerCase() === "scissors") {
     return "Scissors";
 }
 else {
@@ -29,8 +29,29 @@ else {
 
 }
 
+const humanChoice = getHumanSelection();
+const computerChoice = getComputerSelection();
+
+function playGame () {
+
 let humanScore = 0;
 let computerScore = 0;
 
-console.log(getComputerSelection());
-alert (getHumanSelection());
+    function playRound (humanChoice, computerChoice) {
+if (humanChoice === computerChoice) { 
+ return "Tie! Play again.";
+}
+else if (humanChoice === "Scissors" && computerChoice === "Paper" || humanChoice === "Paper" && computerChoice === "Rock"
+    || humanChoice === "Rock" && computerChoice === "Scissors"
+) {
+humanScore++
+return `Human wins! Score: Human ${humanScore} - Computer ${computerScore}`;
+}
+else {
+computerScore++
+return `Computer wins! Score: Human ${humanScore} - Computer ${computerScore}`;
+}
+}
+
+}
+alert (playRound(humanChoice, computerChoice));
