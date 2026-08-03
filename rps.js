@@ -29,15 +29,13 @@ else {
 
 }
 
-const humanChoice = getHumanSelection();
-const computerChoice = getComputerSelection();
 
 function playGame () {
 
 let humanScore = 0;
 let computerScore = 0;
 
-    function playRound (humanChoice, computerChoice) {
+function playRound (humanChoice, computerChoice) {
 if (humanChoice === computerChoice) { 
  return "Tie! Play again.";
 }
@@ -47,11 +45,34 @@ else if (humanChoice === "Scissors" && computerChoice === "Paper" || humanChoice
 humanScore++
 return `Human wins! Score: Human ${humanScore} - Computer ${computerScore}`;
 }
-else {
+else if (computerChoice === "Scissors" && humanChoice === "Paper" || computerChoice === "Paper" && humanChoice === "Rock" || 
+    computerChoice === "Rock" && humanChoice === "Scissors"
+) {
 computerScore++
 return `Computer wins! Score: Human ${humanScore} - Computer ${computerScore}`;
 }
+else {
+    return "Invalid input detected! No points awarded this round.";
+}
+}
+
+for (let i = 0; i < 5; i++) {
+const humanChoice = getHumanSelection();
+const computerChoice = getComputerSelection();
+    alert (playRound(humanChoice, computerChoice));
+}
+
+if (humanScore > computerScore) {
+    alert(`Game Over! You won the tournament! Final Score: ${humanScore} to ${computerScore}`);
+}
+else if (humanScore < computerScore) {
+    alert(`Game Over! The Computer won the tournament! Final Score: ${computerScore} to ${humanScore}`);
+}
+else {
+    alert(`Game Over! The tournament ended in a tie! Final Score: ${humanScore} to ${computerScore}`);
 }
 
 }
-alert (playRound(humanChoice, computerChoice));
+
+playGame();
+
