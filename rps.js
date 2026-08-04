@@ -1,3 +1,11 @@
+const button1 = document.getElementById("rockbtn")
+const button2 = document.getElementById("paperbtn")
+const button3 = document.getElementById("scissorsbtn")
+const humanscore = document.getElementById("humanscore")
+const computerscore = document.getElementById("computerscore")
+const results = document.getElementById ("scoreresults")
+
+
 function getComputerSelection () {
 let random = Math.floor(Math.random () * 3) + 1;
 let computerselect = "";
@@ -12,7 +20,7 @@ return computerselect;
 }
 
 function getHumanSelection () {
-const humanselect = prompt("Pick one! Rock, Paper, or Scissors");
+const humanselect = ("Pick one! Rock, Paper, or Scissors");
 
 if (humanselect.toLowerCase() === "rock") {
     return "Rock";
@@ -27,6 +35,8 @@ else {
     return "Invalid Choice! Please try again.";
 }
 
+
+
 }
 
 let humanScore = 0;
@@ -40,32 +50,71 @@ else if (humanChoice === "Scissors" && computerChoice === "Paper" || humanChoice
     || humanChoice === "Rock" && computerChoice === "Scissors"
 ) {
 humanScore++
-return `Human wins! Score: Human ${humanScore} - Computer ${computerScore}`;
+return `Human wins!`;
 }
 else if (computerChoice === "Scissors" && humanChoice === "Paper" || computerChoice === "Paper" && humanChoice === "Rock" || 
     computerChoice === "Rock" && humanChoice === "Scissors"
 ) {
 computerScore++
-return `Computer wins! Score: Human ${humanScore} - Computer ${computerScore}`;
+return `Computer wins!`;
 }
 else {
     return "Invalid input detected! No points awarded this round.";
 }
 }
 
-for (let i = 0; i < 5; i++) {
-const humanChoice = getHumanSelection();
-const computerChoice = getComputerSelection();
-    alert (playRound(humanChoice, computerChoice));
+button1.addEventListener ("click", function() {
+    const roundResult = playRound("Rock", getComputerSelection())
+    humanscore.textContent = `Human: ${humanScore}`
+    computerscore.textContent = `Computer: ${computerScore}`
+    results.textContent = `${roundResult}`;
+if (humanScore === 5) {
+    results.textContent = "Human is the grand winner! Refresh page to play again.";
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+} else if (computerScore === 5) {
+    results.textContent = "Computer is the grand winner! Refresh page to play again.";
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
 }
+});
 
-if (humanScore > computerScore) {
-    alert(`Game Over! You won the tournament! Final Score: ${humanScore} to ${computerScore}`);
+button2.addEventListener ("click", function() {
+    const roundResult = playRound("Paper", getComputerSelection())
+    humanscore.textContent = `Human: ${humanScore}`
+    computerscore.textContent = `Computer: ${computerScore}`
+    results.textContent = `${roundResult}`;
+if (humanScore === 5) {
+    results.textContent = "Human is the grand winner! Refresh page to play again.";
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+} else if (computerScore === 5) {
+    results.textContent = "Computer is the grand winner! Refresh page to play again.";
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
 }
-else if (humanScore < computerScore) {
-    alert(`Game Over! The Computer won the tournament! Final Score: ${computerScore} to ${humanScore}`);
+});
+
+button3.addEventListener ("click", function() {
+   const roundResult = playRound("Scissors", getComputerSelection())
+    humanscore.textContent = `Human: ${humanScore}`
+    computerscore.textContent = `Computer: ${computerScore}`
+    results.textContent = `${roundResult}`;
+if (humanScore === 5) {
+    results.textContent = "Human is the grand winner! Refresh page to play again.";
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+} else if (computerScore === 5) {
+    results.textContent = "Computer is the grand winner! Refresh page to play again.";
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
 }
-else {
-    alert(`Game Over! The tournament ended in a tie! Final Score: ${humanScore} to ${computerScore}`);
-}
+});
+
 
