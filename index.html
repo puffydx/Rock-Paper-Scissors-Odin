@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS Project</title>
-    <script src="rps.js"> </script>
+    <script src="rps.js" defer> </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <div class="main-container">
+    <div class="score-container"> 
+        <div id="humanscore">
+        Human: 0
+        </div>
+        <div id="computerscore">
+        Computer: 0
+        </div>
+    </div>
+
+            <div id="scoreresults">
+            Click a button to start playing!
+        </div>
+ 
+    <div class="btn-container"> 
+    <button type="button" id="rockbtn"> Rock </button>
+    <button type="button" id="paperbtn"> Paper </button>
+    <button type="button" id="scissorsbtn"> Scissors </button>
+    </div>
+     </div>
+
 </body>
 </html>
