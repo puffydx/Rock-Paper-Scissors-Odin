@@ -29,9 +29,6 @@ else {
 
 }
 
-
-function playGame () {
-
 let humanScore = 0;
 let computerScore = 0;
 
@@ -71,8 +68,4 @@ else if (humanScore < computerScore) {
 else {
     alert(`Game Over! The tournament ended in a tie! Final Score: ${humanScore} to ${computerScore}`);
 }
-
-}
-
-playGame();
 
